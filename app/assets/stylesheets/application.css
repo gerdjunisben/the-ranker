@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+ @font-face {
+  font-family: 'Cool jazz';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Cool jazz'), url('Cooljazz.woff') format('woff');
+}
+
+body{
+
+  font-family:'Cool jazz';
+  font-weight:normal;
+  font-size: large;
+  background-repeat:repeat;
+  background-size: 250px 250px; 
+  background-image: url('ranker_background.png');
+}
+
+
+.rating {
+    --size: 50px;
+    --mask: conic-gradient(from -18deg at 61% 34.5%, #0000 108deg, #000 0) 0 / var(--size),
+        conic-gradient(from 270deg at 39% 34.5%, #0000 108deg, #000 0) 0 / var(--size),
+        conic-gradient(from 54deg at 68% 56%, #0000 108deg, #000 0) 0 / var(--size),
+        conic-gradient(from 198deg at 32% 56%, #0000 108deg, #000 0) 0 / var(--size),
+        conic-gradient(from 126deg at 50% 69%, #0000 108deg, #000 0) 0 / var(--size);
+    --bg: linear-gradient(90deg, #000 calc(var(--size) * var(--val)), #ddd 0);
+    height: var(--size);
+    width: calc(var(--size) * 5);
+    border: 0; /* Firefox adds a default border to ranges */
+    -webkit-appearance: none;
+    appearance: none;
+    
+    /* Chrome and Safari */
+    &::-webkit-slider-runnable-track {
+      height: 100%;
+      mask: var(--mask);
+      mask-composite: intersect;
+      background: var(--bg);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    &::-webkit-slider-thumb {
+      opacity: 0;
+    }
+    
+    /* Firefox */
+    &::-moz-range-track {
+      height: 100%;
+      mask: var(--mask);
+      mask-composite: intersect;
+      background: var(--bg);
+      print-color-adjust: exact;
+    }
+    
+    &::-moz-range-thumb {
+      opacity: 0;
+    }
+  }
+

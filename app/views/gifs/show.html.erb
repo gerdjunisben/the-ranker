@@ -1,0 +1,56 @@
+<div style="display:flex; flex-direction:column; align-items:center;">
+<h1>Gif <%= @num %></h1>
+
+<img src="/proxy?url=<%= CGI.escape(@gif.link) %>" alt="bruh idk" style="width:500px;height:500px;">
+
+<div>
+<script>
+    function sendIt(event, form) {
+        event.preventDefault();
+
+        const rating = form.querySelector('.rating').value;
+
+        fetch('<%= gif_path(@gif.id) %>', {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': '<%= form_authenticity_token %>'
+            },
+            body: JSON.stringify({ rating: rating })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            alert('Rating submitted successfully!');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to submit rating.');
+        });
+        }
+</script>
+<form onsubmit="sendIt(event,this)" style="display:flex; flex-direction:column; align-items:center;">
+        <input 
+        type="range"
+        min="0"
+        max="5"
+        step="0.5"
+        value="0"
+        class="rating"
+        style="--val: 2.5"
+        oninput="this.style='--val:'+this.value"
+        >
+        <input type="submit" value="Submit Ranking" style="font-size:50px; border-radius:5px">
+    </form>
+
+</div>
+
+<div>
+    <% if @prev%>
+        <button id="prev" onclick="window.location.href='<%= gif_path(@num-1) %>'" style="font-size:25px; border-radius:5px">prev</button>
+    <% end %>
+    <% if @next%>
+        <button id="next" onclick="window.location.href='<%= gif_path(@num+1) %>'" style="font-size:25px; border-radius:5px">next</button>
+    <% end %>
+</div>
+</div>

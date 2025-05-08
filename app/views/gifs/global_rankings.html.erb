@@ -1,0 +1,27 @@
+<div style="display:flex; flex-direction:column; align-items:center;">
+        <% @gifs.each_with_index do |gif,index| %>
+        <div onclick="window.location.href='<%= gif_path(gif.id) %>'" style="display: flex; flex-direction:column; cursor: pointer; background-color: <%= case index
+                                      when 0 then '#ffd700'
+                                      when 1 then '#c0c0c0'
+                                      when 2 then '#cd7f32'
+                                      else '#f0f0f0'
+                                    end %>;  padding: 10px; margin: 10px; border-radius: 5px;">
+        <p> 
+            #<%= index + 1 %> 
+        </p>  
+        <img src="/proxy?url=<%= CGI.escape(gif.link) %>" alt="bruh idk" style="width:500px;height:500px;">
+            <input 
+                type="range"
+                min="0"
+                max="5"
+                step="0.5"
+                value="<%= gif.global_rank %>"
+                class="rating"
+                style="--val: <%= gif.global_rank%>"
+                disabled
+                >
+        
+        </div>
+        <% end %>
+
+</div>
