@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :gifs
   root to: 'gifs#index'
   get 'global_rankings', to: 'gifs#global_rankings'
+  get 'random_next', to: 'gifs#randomNext'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   resources :gifs, only: [:index, :show, :update]
