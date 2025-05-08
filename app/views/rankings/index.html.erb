@@ -1,4 +1,4 @@
-<div style="display:flex; flex-wrap:wrap;">
+<div style="display:flex; flex-wrap:wrap; align-items:center;">
         <% @rankings.each do |ranking| %>
         <div onclick="window.location.href='<%= gif_path(ranking.gif.id) %>'" style="display: flex; flex-direction:column; align-items:center;cursor: pointer; background-color: #f0f0f0; padding: 10px; margin: 10px; border-radius: 5px;">
             <img src="/proxy?url=<%= CGI.escape(ranking.gif.link) %>" alt="bruh idk" class="responsive-gif">
