@@ -1,19 +1,7 @@
 <div style="display:flex; flex-direction:column; align-items:center;">
   <h1>Gif <%= @num %></h1>
 
-  <style>
-    img {
-      width: 500px;
-      height: 500px;
-    }
-
-    @media (max-width: 600px) {
-      img {
-        width: 10rem;
-        height: 10rem;
-      }
-    }
-  </style>
+  
 
   <img src="/proxy?url=<%= CGI.escape(@gif.link) %>" alt="bruh idk" class="responsive-gif">
 
