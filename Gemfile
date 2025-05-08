@@ -31,6 +31,7 @@ gem "solid_cable"
 gem 'sprockets-rails'
 gem 'devise'
 gem 'turbolinks', '~> 5'
+gem 'bcrypt'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
