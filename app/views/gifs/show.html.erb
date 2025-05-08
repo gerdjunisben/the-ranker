@@ -34,7 +34,9 @@
             })
             .then(data => {
                 console.log('Random GIF:', data.gif);
-                window.location.href = `/gifs/${data.gif.id}`;
+                setTimeout(() => {
+                    window.location.href = `/gifs/${data.gif.id}`;
+                }, 500); 
             })
             .catch(error => {
                 console.error(error.message);
