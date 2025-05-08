@@ -9,7 +9,11 @@ class GifsController < ApplicationController
     @user = current_user
     @gif = Gif.find(params[:id])
     @num = params[:id].to_i
-    
+    begin
+      @rank = Ranking.find_by(user: @user, gif: @gif)
+    rescue ActiveRecord::RecordNotFound
+      @rank = nil
+    end
     
   end
 
