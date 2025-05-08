@@ -3,7 +3,7 @@
         function first(event)
         {
             event.preventDefault();
-            fetch('/gifs/random_next')
+            fetch('/random_next')
             .then(response => {
                 if (response.ok) {
                 return response.json();

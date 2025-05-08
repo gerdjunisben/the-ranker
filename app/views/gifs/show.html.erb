@@ -24,7 +24,7 @@
         .then(data => {
           console.log('Success:', data);
           showToast('Rating submitted successfully!');
-          fetch('/gifs/random_next')
+          fetch('/random_next')
             .then(response => {
                 if (response.ok) {
                 return response.json();
