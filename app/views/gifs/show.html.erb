@@ -40,17 +40,17 @@
         style="--val: 2.5"
         oninput="this.style='--val:'+this.value"
         >
-        <input type="submit" value="Submit Ranking" style="font-size:50px; border-radius:5px">
+        <input type="submit" value="Submit Ranking" style="font-size:3rem; border-radius:5px">
     </form>
 
 </div>
 
 <div>
     <% if @prev%>
-        <button id="prev" onclick="window.location.href='<%= gif_path(@num-1) %>'" style="font-size:25px; border-radius:5px">prev</button>
+        <button id="prev" onclick="window.location.href='<%= gif_path(@num-1) %>'" style="font-size:2rem; border-radius:5px">prev</button>
     <% end %>
     <% if @next%>
-        <button id="next" onclick="window.location.href='<%= gif_path(@num+1) %>'" style="font-size:25px; border-radius:5px">next</button>
+        <button id="next" onclick="window.location.href='<%= gif_path(@num+1) %>'" style="font-size:2rem; border-radius:5px">next</button>
     <% end %>
 </div>
 </div>
