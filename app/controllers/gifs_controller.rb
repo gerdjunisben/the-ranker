@@ -9,16 +9,7 @@ class GifsController < ApplicationController
     @user = current_user
     @gif = Gif.find(params[:id])
     @num = params[:id].to_i
-    begin
-      @prev = Gif.find(@num -1)
-    rescue ActiveRecord::RecordNotFound
-      @prev = false
-    end
-    begin
-      @next = Gif.find(@num +1)
-    rescue ActiveRecord::RecordNotFound
-      @next = false 
-    end
+    
     
   end
 
@@ -46,4 +37,15 @@ class GifsController < ApplicationController
   def global_rankings
     @gifs = Gif.order(global_rank: :desc)
   end
+
+  def randomNext
+    @user = current_user
+    unrated_gifs = Gif.where.not(id: Ranking.where(user: @user).select(:gif_id))
+
+    @gif = unrated_gifs.sample
+    if @gif
+      render json: { gif: @gif }, status: :ok
+    else
+      render json: { message: 'No unrated GIFs available' }, status: :not_found
+    end
 end

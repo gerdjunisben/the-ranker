@@ -1,4 +1,26 @@
 <div style="display:flex; flex-direction:column; align-items:center;">
+    <script>
+        function first(event)
+        {
+            fetch('/gifs/random_next')
+            .then(response => {
+                if (response.ok) {
+                return response.json();
+                } else {
+                throw new Error('No unrated GIFs available');
+                }
+            })
+            .then(data => {
+                console.log('Random GIF:', data.gif);
+                // Redirect to the GIF's show page or display it
+                window.location.href = `/gifs/${data.gif.id}`;
+            })
+            .catch(error => {
+                console.error(error.message);
+                alert(error.message);
+            });
+        }
+    </script>
     <h1 style="font-size:3rem">RANK MY GIFS</h1>
-    <button id="start" onclick="window.location.href='<%= gif_path(Gif.first.id) %>'" style="font-size:2rem; border-radius:5px">Start</button>
+    <button id="start" onclick="first(event)" style="font-size:2rem; border-radius:5px">Start</button>
 </div>
