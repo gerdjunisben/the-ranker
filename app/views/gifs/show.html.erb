@@ -57,9 +57,9 @@
         min="0"
         max="5"
         step="0.5"
-        value="<%= if @rank.nil? ? 2.5 : @rank.rank %>"
+        value="<%= @rank.nil? ? 2.5 : @rank.rank %>"
         class="rating"
-        style="--val: <%= if @rank.nil? ? 2.5 : @rank.rank%>;"
+        style="--val: <%= @rank.nil? ? 2.5 : @rank.rank%>;"
         oninput="this.style='--val:'+this.value"
       >
       <input type="submit" value="Submit Ranking"  style="font-size:3rem; border-radius:5px">
