@@ -2,6 +2,7 @@
     <script>
         function first(event)
         {
+            event.preventDefault();
             fetch('/gifs/random_next')
             .then(response => {
                 if (response.ok) {
@@ -12,7 +13,6 @@
             })
             .then(data => {
                 console.log('Random GIF:', data.gif);
-                // Redirect to the GIF's show page or display it
                 window.location.href = `/gifs/${data.gif.id}`;
             })
             .catch(error => {
