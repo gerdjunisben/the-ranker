@@ -48,4 +48,5 @@ class GifsController < ApplicationController
     else
       render json: { message: 'No unrated GIFs available' }, status: :not_found
     end
+  end
 end
