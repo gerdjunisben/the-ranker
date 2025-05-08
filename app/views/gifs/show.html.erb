@@ -23,11 +23,11 @@
         .then(response => response.json())
         .then(data => {
           console.log('Success:', data);
-          alert('Rating submitted successfully!');
+          showToast('Rating submitted successfully!');
         })
         .catch(error => {
           console.error('Error:', error);
-          alert('Failed to submit rating.');
+          showToast('Rating failed!');
         });
       }
     </script>
