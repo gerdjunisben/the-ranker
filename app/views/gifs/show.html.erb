@@ -1,7 +1,7 @@
 <div style="display:flex; flex-direction:column; align-items:center;">
 <h1>Gif <%= @num %></h1>
 
-<img src="/proxy?url=<%= CGI.escape(@gif.link) %>" alt="bruh idk" style="width:500px;height:500px;">
+<img src="/proxy?url=<%= CGI.escape(@gif.link) %>" alt="bruh idk" style="width:50%;height:50%;">
 
 <div>
 <script>
@@ -45,7 +45,7 @@
 
 </div>
 
-<div style="padding-bottom:30px">
+<div>
     <% if @prev%>
         <button id="prev" onclick="window.location.href='<%= gif_path(@num-1) %>'" style="font-size:2rem; border-radius:5px">prev</button>
     <% end %>
